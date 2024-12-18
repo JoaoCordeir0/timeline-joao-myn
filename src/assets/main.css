@@ -1,0 +1,139 @@
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+*{
+   font-family: 'Poppins', Arial;
+}
+
+body {
+   background-color: #10101d;
+   color: #fff;
+   font-family: Arial, sans-serif;
+   overflow-y: hidden;
+   overflow-x: hidden;
+}
+
+h1 {
+   text-align: center;
+   color: #f08a5d;
+   margin: 30px 0;
+   font-size: 2.5rem;
+}
+
+.container {
+   margin: 20px;
+   overflow-x: scroll;
+   overflow-y: hidden;
+}
+
+.timeline {
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   margin: 35vh auto;
+   width: 100%;
+   padding: 20px;
+}
+
+.timeline::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 0;
+   right: 0;
+   height: 5px;
+   background-color: #f08a5d;
+   transform: translateY(-50%);
+   z-index: 1;
+}
+
+.timeline-item {
+   position: relative;
+   text-align: center;
+   width: 20%;
+   margin-left: 50px;
+   z-index: 2;
+}
+
+.timeline-item .marker {
+   width: 20px;
+   height: 20px;
+   background-color: #fff;
+   border: 5px solid #f08a5d;
+   border-radius: 50%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 3;
+}
+
+.timeline-item .marker:hover {
+   background-color: #fff;
+   border: 5px solid #d05621;
+}
+
+.timeline-content {
+   padding: 15px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+   margin-bottom: -220px;
+   width: 150px;
+   height: 200px;
+   color: #fefefe;
+   border-radius: 30px;
+   margin-top: 10px;
+}
+
+.timeline-content:hover {
+   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-content img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.timeline-content h5 {
+   font-style: italic;
+   margin-top: 5px;
+}
+
+.timeline-date {
+   font-size: 0.9rem;
+   font-weight: bold;
+   color: #f08a5d;
+   margin-bottom: 10px;
+}
+
+.timeline-content.top {
+   transform: translateY(-110%);
+}
+
+.timeline-content.bottom {
+   transform: translateY(10%);
+}
+
+::-webkit-scrollbar {
+   width: 12px;
+   height: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background: transparent;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #f08a5d;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #d05621;
+}
