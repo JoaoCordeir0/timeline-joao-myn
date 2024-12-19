@@ -31,6 +31,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue"
 import Preloader from "../components/Preloader.vue"
+import content from '../../content.json'
 
 export default defineComponent({
     async setup() {           
@@ -49,13 +50,12 @@ export default defineComponent({
     methods: {
         async getImages() {
             try {
-                setTimeout(async () => {
-                    const response = await fetch('./content.json')
-                    const data = await response.json()
+                setTimeout(() => {
+                    const data = content // Usando o JSON importado
                     this.images_size = data.length
                     this.images = data
                     this.loading = false
-                }, 1000)
+                }, 2000) // 2000ms = 2 seconds delay
             } catch (error) {
                 console.error(error);
             }
@@ -69,4 +69,3 @@ export default defineComponent({
     }
 })
 </script>
-  
