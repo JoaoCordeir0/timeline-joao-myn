@@ -1,6 +1,6 @@
 <template>
     <h1>Timeline João & Myn ♥</h1>
-    <div class="container">
+    <div v-if="!loading" class="container">
         <div class="scroll">
             <div class="timeline" id="timelineContainer" :style="{'width': `${(images_size + 1) * 240}px`}">
                 <div class="timeline-item" v-for="(img, index) in images">
@@ -21,30 +21,41 @@
             </div> 
         </div>
     </div>
+    <div v-else class="container">
+        <div class="preloader">
+            <Preloader />
+        </div>
+    </div>
 </template>
   
 <script lang="ts">
 import { defineComponent, ref } from "vue"
+import Preloader from "../components/Preloader.vue"
 
 export default defineComponent({
     async setup() {           
         const images = ref()
         const images_size = ref()
         const data = ref("data:image/")
+        const loading = ref(true)
 
         return {
             images,
             images_size,
             data,
+            loading,
         }
     },    
     methods: {
         async getImages() {
             try {
-                const response = await fetch('./content.json')
-                const data = await response.json()
-                this.images_size = data.length
-                this.images = data;
+                setTimeout(async () => {
+                    const response = await fetch('./content.json')
+                    const data = await response.json()
+                    this.images_size = data.length
+                    this.images = data
+                    this.loading = false
+                }, 1000)
             } catch (error) {
                 console.error(error);
             }
@@ -52,6 +63,9 @@ export default defineComponent({
     }, 
     beforeMount() {
         this.getImages()
+    },
+    components: {
+        Preloader
     }
 })
 </script>
