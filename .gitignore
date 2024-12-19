@@ -6,5 +6,7 @@ yarn.lock
 
 .env
 
+dist/
+
 generate_img_hash.js
 generate_password.js
