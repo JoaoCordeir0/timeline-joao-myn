@@ -3,11 +3,11 @@ import vue from '@vitejs/plugin-vue'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
+  base: '/timeline-joao-myn/',
   plugins: [
     vue(),
     nodePolyfills(),
   ],
-  base: '/timeline-joao-myn/',
   build: {
     target: 'esnext'
   },
