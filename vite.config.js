@@ -7,7 +7,7 @@ export default defineConfig({
     vue(),
     nodePolyfills(),
   ],
-  base: process.env.NODE_ENV === 'production' ? '/timeline-joao-myn/' : '',
+  base: '/timeline-joao-myn/',
   build: {
     target: 'esnext'
   },
