@@ -9,20 +9,20 @@ const routes: RouteRecordRaw[] = [
         path: '/timeline-joao-myn',
         name: 'Home',
         component: Timeline,
-        beforeEnter: (to, from, next) => {
-            const pass = prompt('Digite a senha para acessar a página:')
+        // beforeEnter: (to, from, next) => {
+        //     const pass = prompt('Digite a senha para acessar a página:')
 
-            const password_hash = 'b8c3ca1b96fb957d300242cf363a5b70'
+        //     const password_hash = 'b8c3ca1b96fb957d300242cf363a5b70'
 
-            const password_inputed = CryptoJS.MD5(pass).toString(CryptoJS.enc.Hex)
+        //     const password_inputed = CryptoJS.MD5(pass).toString(CryptoJS.enc.Hex)
 
-            if (password_inputed === password_hash) {
-                next()
-            } else {
-                alert('Senha incorreta!')
-                next(false)
-            }
-        },
+        //     if (password_inputed === password_hash) {
+        //         next()
+        //     } else {
+        //         alert('Senha incorreta!')
+        //         next(false)
+        //     }
+        // },
     },
     {
         path: '/:pathMatch(.*)*',
