@@ -91,7 +91,7 @@ h1 {
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
    margin-bottom: -220px;
    width: 150px;
-   height: 200px;
+   height: 210px;
    color: #c4c4c4;
    border-radius: 30px;
    margin-top: 10px;
@@ -140,6 +140,10 @@ h1 {
 }
 .font2 {
    font-family: "Alex Brush", cursive;
+}
+
+.nolink {
+   text-decoration: none;
 }
 
 ::-webkit-scrollbar {

@@ -5,12 +5,14 @@
         <div class="scroll">
             <div class="timeline" id="timelineContainer" :style="{'width': `${(images_size + 1) * 240}px`}">
                 <div class="timeline-item" v-for="(img, index) in images">
-                    <div class="marker"></div>
-                    <div class="timeline-content" :class="index % 2 == 0 ? 'top' : 'bottom'">
-                        <div class="timeline-date font2">{{ img.date }}</div>
-                        <img :src="data + img.content">
-                        <h5>{{ img.phrase }}</h5>
-                    </div>
+                    <a class="nolink" :href="data + img.content" download="joao_e_myn.jpg">
+                        <div class="marker"></div>
+                        <div class="timeline-content" :class="index % 2 == 0 ? 'top' : 'bottom'" :title="img.year">
+                            <div class="timeline-date font2">{{ img.date }}</div>
+                            <img :src="data + img.content">
+                            <h5>{{ img.phrase }}</h5>
+                        </div>
+                    </a>
                 </div>
                 <div class="timeline-item">
                     <div class="marker"></div>
@@ -63,6 +65,12 @@ export default defineComponent({
                 console.error(error);
             }
         },
+        showImage(base64String) {
+            const link = document.createElement("a");
+            link.href = base64String;
+            link.target = "_blank";
+            link.click();
+        }
     }, 
     beforeMount() {
         this.getImages()
